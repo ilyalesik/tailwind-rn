@@ -114,11 +114,15 @@ const isUtilitySupported = (utility, rule) => {
 
 	// Skip utilities with unsupported properties
 	for (const {property, value} of rule.declarations) {
+		if (!property || !value) {
+			return false;
+		}
+
 		if (unsupportedProperties.has(property)) {
 			return false;
 		}
 
-		if (property === 'display' && !['flex', 'none'].includes(value)) {
+		if (property === 'display' && !['flex', 'none', 'block'].includes(value)) {
 			return false;
 		}
 

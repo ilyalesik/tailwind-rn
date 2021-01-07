@@ -8,10 +8,11 @@ const build = require('./build');
 
 meow(`
 	Usage
-	  $ create-tailwind-rn
+	  $ create-tailwind-rf
 `);
 
 const source = `
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 `;
